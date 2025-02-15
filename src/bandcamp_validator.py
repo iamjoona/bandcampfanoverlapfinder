@@ -6,7 +6,6 @@ class BandcampValidator:
             print("Invalid URL. Please enter a Bandcamp URL.")
             return False
         
-        # check that the url contains either /track/ or /album/
         if not BandcampValidator.is_album_or_track(url):
             return False
 
