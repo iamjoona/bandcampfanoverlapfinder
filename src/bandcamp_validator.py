@@ -27,9 +27,21 @@ class BandcampValidator:
 
         Returns: bool: True if valid, False if invalid
         """
+        if not isinstance(url, str):
+            raise TypeError("URL must be a string.")
         
-        url_parts = url.split('/')
-        if 'track' not in url_parts and 'album' not in url_parts:
-            print("Invalid URL. Please enter a Bandcamp URL to an album or a track.")
+        if not url:
+            print("No URL entered.")
             return False
-        return True
+
+        url_parts = url.split('/')
+        for index, part in enumerate(url_parts):
+            if part in ['album', 'track']:
+                if index +1 < len(url_parts) and url_parts[index + 1].strip():
+                    return True
+                else:
+                    print("Invalid URL. Missing album/track name.")
+                    return False
+        
+        print("Invalid URL. Please enter a Bandcamp URL to an album or a track.")
+        return False
