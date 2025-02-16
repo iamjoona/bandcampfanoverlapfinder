@@ -1,13 +1,14 @@
 
 from bandcamp_validator import BandcampValidator
 from bandcamp_scraper import BandcampScraper
+from bandcamp_fan_analyser import FanAnalyser
 import asyncio
 
 class BandcampFanFinder:
     def __init__(self):
         self.validator = BandcampValidator()
         self.scraper = BandcampScraper()
-        # self.analyser = FanAnalyser()
+        self.analyser = FanAnalyser()
 
 
 async def main():
@@ -17,6 +18,7 @@ async def main():
     print("When you are finished, type 'done'. Exit at any time by pressing Ctrl+C.")
 
     scraper = BandcampScraper()
+    analyser = FanAnalyser()
     
     # Ask for user input for upto 5 Bandcamp URLs
     urls = []
@@ -29,7 +31,9 @@ async def main():
         
         if url == 'done' and len(urls) >= 2:
             print(f"You've entered {len(urls)} URLs. Fetching data now.")
-            await scraper.process_multiple_urls(urls)
+            url_and_fans = await scraper.process_multiple_urls(urls)
+            overlapping_fans = analyser.find_overlapping_fans(url_and_fans)
+            analyser.format_results(overlapping_fans)
             break
 
         if len(urls) == 5:

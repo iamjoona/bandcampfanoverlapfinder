@@ -18,6 +18,7 @@ class BandcampScraper:
         Returns:
             Optional[str]: The HTML content if successful, None if failed
         """
+
         try: 
             # add https:// if not present
             if not url.startswith(('https://', 'http://')):
@@ -44,8 +45,9 @@ class BandcampScraper:
             
         Returns:
             Optional[list[dict[str, str]]]: List of fan dictionaries if successful,
-                                        None if failed
+                                            None if failed
         """
+
         html = await self.fetch_url(url)
         if html:
             return self.parse_fans(html)
@@ -61,6 +63,7 @@ class BandcampScraper:
         Returns:
             list[dict[str, str]]: List of fans with their details
         """
+
         soup = BeautifulSoup(html, 'html.parser')
         fan_elements = soup.find_all('a', class_='fan pic')
 
@@ -74,7 +77,6 @@ class BandcampScraper:
                 'profile_link': profile_link
             })
 
-        print(fans)
         return fans
     
     async def process_multiple_urls(self, urls: list) -> dict[str, list[dict[str, str]]]:
@@ -87,6 +89,7 @@ class BandcampScraper:
         Returns:
             list[dict[str, str]]: List of fans for each URL
         """
+
         results = {}
         for url in urls:
             fans = await self.get_track_fans(url)
