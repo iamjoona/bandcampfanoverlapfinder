@@ -1,6 +1,6 @@
 
 from bs4 import BeautifulSoup
-import requests
+import stealth_requests as requests
 from requests.exceptions import RequestException
 from typing import Optional
 
