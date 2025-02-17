@@ -1,2 +1,7 @@
 venv/
+# Python cache files
 __pycache__/
+*.py[cod]
+*$py.class
+src/__pycache__/
+*/*/__pycache__/
