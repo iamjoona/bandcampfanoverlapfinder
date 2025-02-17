@@ -29,34 +29,36 @@ A Python tool that helps DJs and music enthusiasts discover new music by analyzi
 
 1. Clone the repository:
 
-``
-git clone https://github.com/yourusername/bandcamp-fan-finder.git
-cd bandcamp-fan-finder ``
+`
+    git clone https://github.com/yourusername/bandcamp-fan-finder.git
+    cd bandcamp-fan-finder 
+`
 
 2. Create and activate a virtual environment:
 
-`` 
-# On Windows
-python -m venv venv
-venv\Scripts\activate
+` 
+    # On Windows
+    python -m venv venv
+    venv\Scripts\activate
 
-# On macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-``
+    # On macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+`
 
 3. Install required packages:
 
-``
-pip install -r requirements.txt
-``
+`
+    pip install -r requirements.txt
+`
 
 ## Usage
 1. Make sure your virtual environment is activated
 2. Run the script:
-`` 
-python src/main.py 
-``
+
+` 
+    python src/main.py 
+`
 3. Enter Bandcamp URLs when prompted (minimum 2, maximum 5)
 - URLs should be album or track pages (e.g., artist.bandcamp.com/album/album-name or artist bandcamp.com/track/track-name)
 - Type 'done' when you've entered all URLs you want to compare
