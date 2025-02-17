@@ -1,7 +1,7 @@
 
 from bs4 import BeautifulSoup
+from curl_cffi.requests.exceptions import RequestException, HTTPError
 import stealth_requests as requests
-from requests.exceptions import RequestException
 from typing import Optional
 
 class BandcampScraper:
@@ -19,6 +19,9 @@ class BandcampScraper:
             Optional[str]: The HTML content if successful, None if failed
         """
 
+        if not url:
+            raise ValueError("No URL provided.")
+
         try: 
             # add https:// if not present
             if not url.startswith(('https://', 'http://')):
@@ -31,9 +34,9 @@ class BandcampScraper:
             response.raise_for_status() # raise an exception for 4xx/5xx status codes
             return response.text
         
-        except RequestException as e:
-            print(f"Error fetching URL: {e}")
-            return None
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching URL {url}: {str(e)}")
+            raise  
         
 
     async def get_track_fans(self, url: str) -> Optional[list[dict[str, str]]]:

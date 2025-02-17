@@ -1,6 +1,7 @@
 import unittest
 from bandcamp_validator import BandcampValidator
 
+
 class test_validator(unittest.TestCase):
     def setUp(self):
         """

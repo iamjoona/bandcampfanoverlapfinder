@@ -33,7 +33,7 @@ class FanAnalyser:
                     'profile_link': data['profile_link'],
                     'urls': data['urls'],
                     'overlap_count': len(data['urls']),
-                    'found_in': list(data['urls'])
+                    'found_in': sorted(list(data['urls']))
                 })
 
         
