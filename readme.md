@@ -29,28 +29,30 @@ A Python tool that helps DJs and music enthusiasts discover new music by analyzi
 
 1. Clone the repository:
 
-`
+``
     git clone https://github.com/yourusername/bandcamp-fan-finder.git
     cd bandcamp-fan-finder 
-`
+``
 
 2. Create and activate a virtual environment:
 
-` 
+`` 
     # On Windows
     python -m venv venv
     venv\Scripts\activate
+``
 
+``
     # On macOS/Linux
     python3 -m venv venv
     source venv/bin/activate
-`
+``
 
 3. Install required packages:
 
-`
+``
     pip install -r requirements.txt
-`
+``
 
 ## Usage
 1. Make sure your virtual environment is activated
@@ -76,23 +78,25 @@ https://another-artist.bandcamp.com/track/track-name
 - Display results with links to fan profiles
 
 ### Example Output
-Overlapping Fans Found:
-==================================================
+``
+    Overlapping Fans Found:
+    ==================================================
 
-Fan: username1
-Profile: https://bandcamp.com/username1
-Found in 3 tracks:
-  • Album One
-  • Album Two
-  • Album Three
-----------------------------------------
+    Fan: username1
+    Profile: https://bandcamp.com/username1
+    Found in 3 tracks:
+    • Album One
+    • Album Two
+    • Album Three
+    ----------------------------------------
 
-Fan: username2
-Profile: https://bandcamp.com/username2
-Found in 2 tracks:
-  • Album One
-  • Album Two
-----------------------------------------
+    Fan: username2
+    Profile: https://bandcamp.com/username2
+    Found in 2 tracks:
+    • Album One
+    • Album Two
+    ----------------------------------------
+``
 
 ### Requirements
 - Python 3.8 or higher
